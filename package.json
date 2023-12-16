@@ -1,0 +1,39 @@
+{
+    "name": "sjwt",
+    "version": "1.0.0",
+    "description": "Use Simple JWT the even easier way",
+    "files": ["dist"],
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.cjs",
+    "type": "module",
+    "scripts": {
+        "build": "unbuild",
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Simple-JWT/sjwt.git"
+    },
+    "keywords": [
+        "sjwt",
+        "simple",
+        "jwt",
+        "jwt",
+        "authentication",
+        "users"
+    ],
+    "author": "Jonathan Walters",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Simple-JWT/sjwt/issues"
+    },
+    "homepage": "https://simplejwt.com",
+    "devDependencies": {
+        "unbuild": "^2.0.0"
+    }
+}
