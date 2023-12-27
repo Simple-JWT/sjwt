@@ -2,7 +2,9 @@
     "name": "sjwt",
     "version": "1.0.0",
     "description": "Use Simple JWT the even easier way",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "exports": {
         ".": {
             "import": "./dist/index.mjs",
@@ -13,6 +15,7 @@
     "type": "module",
     "scripts": {
         "build": "unbuild",
+        "lint": "eslint src/",
         "test": "test"
     },
     "repository": {
@@ -34,6 +37,8 @@
     },
     "homepage": "https://simplejwt.com",
     "devDependencies": {
+        "eslint": "^8.56.0",
+        "eslint-config-airbnb-base": "^15.0.0",
         "unbuild": "^2.0.0"
     }
 }

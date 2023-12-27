@@ -1,6 +1,4 @@
-class sjwtClass {
-    config;
-
+class SjwtClass {
     constructor() {
         this.config = {
             version: 'v1',
@@ -32,9 +30,9 @@ class sjwtClass {
     get projectId() {
         return this.config.projectId;
     }
-};
+}
 
-const sjwt = new sjwtClass()
+const sjwt = new SjwtClass();
 
 export default sjwt;
 
