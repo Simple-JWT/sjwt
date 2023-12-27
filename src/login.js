@@ -1,12 +1,10 @@
-import defaultStore from './lib/store.js';
-
 const login = ({
     email,
     password,
     projectId,
-    store = defaultStore,
 }) => {
-    console.log('login', {email, password, projectId, store});
+    // eslint-disable-next-line no-console
+    console.log('login', {email, password, projectId});
 };
 
 export default login;

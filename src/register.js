@@ -1,14 +1,27 @@
-import defaultStore from './lib/store.js';
+import sjwt from './sjwt.js';
 
-const register = ({
+const register = async ({
     email,
     password,
     projectId,
-    store = defaultStore,
-}) => {
-    console.log('register', {email, password, projectId, store});
-    const user = {email, password};
-    store({user});
+} = {}) => {
+    try {
+        const pid = projectId ?? sjwt.projectId;
+        const url = `${sjwt.authUrl}/${pid}/register`;
+
+        const result = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, password}),
+        });
+
+        return result.json();
+    } catch (error) {
+        return 'error';
+    }
 };
 
 export default register;
