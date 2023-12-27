@@ -4,7 +4,7 @@ const register = async ({
     email,
     password,
     projectId,
-}) => {
+} = {}) => {
     try {
         const pid = projectId ?? sjwt.projectId;
         const url = `${sjwt.authUrl}/${pid}/register`;
