@@ -1,12 +1,11 @@
-import defaultStore from './lib/store.js';
+import sjwt from './sjwt.js';
 
 const login = ({
     email,
     password,
     projectId,
-    store = defaultStore,
 }) => {
-    console.log('login', {email, password, projectId, store});
+    console.log('login', {email, password, projectId});
 };
 
 export default login;
