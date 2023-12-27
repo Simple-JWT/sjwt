@@ -20,7 +20,6 @@ const register = async ({
 
         return result.json();
     } catch (error) {
-        console.error(error);
         return 'error';
     }
 };
