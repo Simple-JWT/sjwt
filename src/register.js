@@ -1,4 +1,6 @@
 import sjwt from './sjwt.js';
+import getErrorFromCodes from './getErrorFromCodes.js';
+import {codes} from './codesMessages.js';
 
 const register = async ({
     email,
@@ -20,7 +22,7 @@ const register = async ({
 
         return result.json();
     } catch (error) {
-        return 'error';
+        return getErrorFromCodes([codes.UNKNOWN_ERROR]);
     }
 };
 

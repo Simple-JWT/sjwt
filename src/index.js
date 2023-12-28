@@ -1,9 +1,15 @@
-import register from './register.js';
+import {codes, messages} from './codesMessages.js';
+import getErrorFromCodes from './getErrorFromCodes.js';
 import login from './login.js';
+import register from './register.js';
 import sjwt from './sjwt.js';
 
+
 export {
-    register,
+    codes,
+    messages,
+    getErrorFromCodes,
     login,
+    register,
     sjwt,
 };
