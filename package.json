@@ -1,7 +1,7 @@
 {
     "name": "sjwt",
     "version": "1.0.0",
-    "description": "Use Simple JWT the even easier way",
+    "description": "Simple JWT the easy way.",
     "files": [
         "dist"
     ],
@@ -30,7 +30,7 @@
         "authentication",
         "users"
     ],
-    "author": "Jonathan Walters",
+    "author": "Jonathan Walters <jon.jdw.me@gmail.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/Simple-JWT/sjwt/issues"
