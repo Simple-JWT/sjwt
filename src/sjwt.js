@@ -15,6 +15,14 @@ const loadToken = () => {
     return null;
 };
 
+const removeToken = () => {
+    if (localStorage) {
+        return localStorage.removeItem('sjwt-token');
+    }
+
+    return null;
+};
+
 class SjwtClass {
     constructor() {
         this.user = null;
@@ -26,6 +34,7 @@ class SjwtClass {
             projectId: null,
             saveToken,
             loadToken,
+            removeToken,
         };
     }
 
@@ -39,6 +48,7 @@ class SjwtClass {
             projectId: options.projectId ?? this.config.projectId,
             saveToken: options.saveToken ?? this.config.saveToken,
             loadToken: options.loadToken ?? this.config.loadToken,
+            removeToken: options.removeToken ?? this.config.removeToken,
         };
     }
 
@@ -63,7 +73,7 @@ class SjwtClass {
             this.user = null;
         }
 
-        if (user) {
+        if (user !== undefined) {
             this.user = user;
         }
 
@@ -81,6 +91,12 @@ class SjwtClass {
         this.token = this.config.loadToken();
 
         return this.token;
+    }
+
+    logout() {
+        this.token = null;
+        this.user = null;
+        this.config.removeToken();
     }
 }
 

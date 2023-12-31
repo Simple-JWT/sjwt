@@ -15,7 +15,7 @@ import {codes} from './codesMessages.js';
  */
 
 /**
- * Register a new end-user
+ * Login an end-user
  *
  * @param {object} args - args
  * @param {string} args.email - End-user's email address
