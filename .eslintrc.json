@@ -10,7 +10,8 @@
     },
     "extends": [
         "airbnb-base",
-        "plugin:vitest/recommended"
+        "plugin:vitest/recommended",
+        "plugin:jsdoc/recommended"
     ],
     "overrides": [
         {
@@ -21,7 +22,8 @@
     ],
     "ignorePatterns": ["dist/"],
     "plugins": [
-        "vitest"
+        "vitest",
+        "jsdoc"
     ],
     "rules": {
         "indent": ["error", 4, {
@@ -43,6 +45,9 @@
         "max-len": 0,
         "prefer-destructuring": 0,
         "no-multiple-empty-lines": ["error", {"max": 2}],
-        "no-console": ["error", {"allow": ["warn", "error"]}]
+        "no-console": ["error", {"allow": ["warn", "error"]}],
+        "jsdoc/require-returns-description": 0,
+         "jsdoc/tag-lines": ["error", "always", {"startLines": 1, "count": 0}],
+        "jsdoc/require-jsdoc": ["error", {"contexts":[{"context":"ArrowFunctionExpression"}],"publicOnly": true}]
     }
 }

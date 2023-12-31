@@ -14,6 +14,7 @@ const getBasicError = (code) => ({
         code,
         message: messages[code],
     }],
+    context: {},
 });
 
 describe('base error cases', () => {
