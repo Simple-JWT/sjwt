@@ -1,4 +1,6 @@
-const BETA_CODE_ERROR = 'BETA_CODE_ERROR';
+const BETA_CODE_CREATE_ERROR = 'BETA_CODE_CREATE_ERROR';
+const BETA_CODE_NOT_FOUND = 'BETA_CODE_NOT_FOUND';
+
 const CONTACT_SUPPORT = 'CONTACT_SUPPORT';
 const CREDENTIALS_ERROR = 'CREDENTIALS_ERROR';
 const EMAIL_IN_USE = 'EMAIL_IN_USE';
@@ -13,7 +15,6 @@ const END_USER_SUSPENDED = 'END_USER_SUSPENDED';
 const END_USER_UPDATE_ERROR = 'END_USER_UPDATE_ERROR';
 
 const HEADER_MISSING_JSON = 'HEADER_MISSING_JSON';
-const INVALID_BETA_CODE = 'INVALID_BETA_CODE';
 const INVALID_EMAIL = 'INVALID_EMAIL';
 const INVALID_JSON = 'INVALID_JSON';
 const INVALID_PARAMS = 'INVALID_PARAMS';
@@ -41,7 +42,9 @@ const UNKNOWN_ERROR = 'UNKNOWN_ERROR';
 const VERIFICATION_ERROR = 'VERIFICATION_ERROR';
 
 const codes = {
-    BETA_CODE_ERROR,
+    BETA_CODE_CREATE_ERROR,
+    BETA_CODE_NOT_FOUND,
+
     CONTACT_SUPPORT,
     CREDENTIALS_ERROR,
     EMAIL_IN_USE,
@@ -55,7 +58,6 @@ const codes = {
     END_USER_UPDATE_ERROR,
 
     HEADER_MISSING_JSON,
-    INVALID_BETA_CODE,
     INVALID_EMAIL,
     INVALID_JSON,
     INVALID_PARAMS,
@@ -84,7 +86,9 @@ const codes = {
 };
 
 const messages = {
-    [BETA_CODE_ERROR]: 'Could not generate a beta code, please try again',
+    [BETA_CODE_CREATE_ERROR]: 'Could not generate a beta code, please try again',
+    [BETA_CODE_NOT_FOUND]: 'Beta code not valid, please try again',
+
     [CONTACT_SUPPORT]: 'Please contact support',
     [CREDENTIALS_ERROR]: 'Invalid email or password',
     [EMAIL_IN_USE]: 'Email already in use',
@@ -99,7 +103,6 @@ const messages = {
     [END_USER_UPDATE_ERROR]: 'End-user could not be updated, please try again',
 
     [HEADER_MISSING_JSON]: 'Request headers must include `Content-Type: application/json`',
-    [INVALID_BETA_CODE]: 'Beta code not valid, please try again',
     [INVALID_EMAIL]: 'Please use a valid email address',
     [INVALID_JSON]: 'Invalid JSON data',
     [INVALID_PARAMS]: 'Parameters are invalid, please try again',
