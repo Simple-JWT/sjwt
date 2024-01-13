@@ -62,11 +62,11 @@ describe('string handling', () => {
     });
 
     it('returns all errors when called with multiple codes', () => {
-        const result = getErrorFromCodes([codes.EMAIL_IN_USE, codes.INVALID_PROJECT]);
+        const result = getErrorFromCodes([codes.EMAIL_IN_USE, codes.PROJECT_NOT_FOUND]);
         const expected = getBasicError(codes.EMAIL_IN_USE);
         expected.errors.push({
-            code: codes.INVALID_PROJECT,
-            message: messages[codes.INVALID_PROJECT],
+            code: codes.PROJECT_NOT_FOUND,
+            message: messages[codes.PROJECT_NOT_FOUND],
         });
 
         expect(result).toEqual(expected);
@@ -78,7 +78,7 @@ describe('string handling', () => {
         const result = getErrorFromCodes([
             codes.EMAIL_IN_USE,
             fakeError1,
-            codes.INVALID_PROJECT,
+            codes.PROJECT_NOT_FOUND,
             fakeError2,
         ]);
 
@@ -88,8 +88,8 @@ describe('string handling', () => {
             message: messages[codes.UNKNOWN_ERROR],
         });
         expected.errors.push({
-            code: codes.INVALID_PROJECT,
-            message: messages[codes.INVALID_PROJECT],
+            code: codes.PROJECT_NOT_FOUND,
+            message: messages[codes.PROJECT_NOT_FOUND],
         });
         expected.errors.push({
             code: codes.UNKNOWN_ERROR,
@@ -112,11 +112,11 @@ describe('object handling', () => {
     });
 
     it('returns all errors when called with multiple codes', () => {
-        const result = getErrorFromCodes([{code: codes.EMAIL_IN_USE}, {code: codes.INVALID_PROJECT}]);
+        const result = getErrorFromCodes([{code: codes.EMAIL_IN_USE}, {code: codes.PROJECT_NOT_FOUND}]);
         const expected = getBasicError(codes.EMAIL_IN_USE);
         expected.errors.push({
-            code: codes.INVALID_PROJECT,
-            message: messages[codes.INVALID_PROJECT],
+            code: codes.PROJECT_NOT_FOUND,
+            message: messages[codes.PROJECT_NOT_FOUND],
         });
 
         expect(result).toEqual(expected);
@@ -128,7 +128,7 @@ describe('object handling', () => {
         const result = getErrorFromCodes([
             {code: codes.EMAIL_IN_USE},
             {code: fakeError1},
-            {code: codes.INVALID_PROJECT},
+            {code: codes.PROJECT_NOT_FOUND},
             {code: fakeError2},
         ]);
 
@@ -138,8 +138,8 @@ describe('object handling', () => {
             message: messages[codes.UNKNOWN_ERROR],
         });
         expected.errors.push({
-            code: codes.INVALID_PROJECT,
-            message: messages[codes.INVALID_PROJECT],
+            code: codes.PROJECT_NOT_FOUND,
+            message: messages[codes.PROJECT_NOT_FOUND],
         });
         expected.errors.push({
             code: codes.UNKNOWN_ERROR,
@@ -219,8 +219,8 @@ describe('handling mixed objects and strings', () => {
         const location = 'location';
         const expected = getBasicError(codes.EMAIL_IN_USE);
         expected.errors.push({
-            code: codes.INVALID_PROJECT,
-            message: messages[codes.INVALID_PROJECT],
+            code: codes.PROJECT_NOT_FOUND,
+            message: messages[codes.PROJECT_NOT_FOUND],
             value,
             param,
             location,
@@ -229,7 +229,7 @@ describe('handling mixed objects and strings', () => {
         expect(getErrorFromCodes([
             codes.EMAIL_IN_USE,
             {
-                code: codes.INVALID_PROJECT,
+                code: codes.PROJECT_NOT_FOUND,
                 value,
                 param,
                 location,
@@ -241,7 +241,7 @@ describe('handling mixed objects and strings', () => {
         const value = 'value';
         const param = 'param';
         const location = 'location';
-        const expected = getBasicError(codes.INVALID_PROJECT);
+        const expected = getBasicError(codes.PROJECT_NOT_FOUND);
         expected.errors[0].value = value;
         expected.errors[0].param = param;
         expected.errors[0].location = location;
@@ -252,7 +252,7 @@ describe('handling mixed objects and strings', () => {
 
         expect(getErrorFromCodes([
             {
-                code: codes.INVALID_PROJECT,
+                code: codes.PROJECT_NOT_FOUND,
                 value,
                 param,
                 location,
