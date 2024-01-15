@@ -1,6 +1,4 @@
 import sjwt from './sjwt.js';
-import getErrorFromCodes from './getErrorFromCodes.js';
-import {codes} from './codesMessages.js';
 
 /**
  * TODO flesh this out
@@ -45,8 +43,9 @@ const getAuthenticatedUser = async ({
         return data;
     } catch (error) {
         console.error(error);
-        return getErrorFromCodes([codes.UNKNOWN_ERROR]);
     }
+
+    return null;
 };
 
 export default getAuthenticatedUser;
