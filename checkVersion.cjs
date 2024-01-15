@@ -10,7 +10,12 @@ if (!packageJson) {
     process.exit(1);
 }
 
-if (packageJson.version !== process.argv[2]) {
+const actual = packageJson.version;
+const vActual = `v${actual}`;
+const provided = process.argv[2];
+const isMatch = actual === provided || vActual === provided;
+
+if (!isMatch) {
     console.error(`Package.json version '${packageJson.version}' and provided version '${process.argv[2]}' do not match.`);
     process.exit(1);
 }
