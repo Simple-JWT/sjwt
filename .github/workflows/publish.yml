@@ -26,4 +26,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.GITHUB_REF_NAME }}
         run: |
-          gh release edit ${GITHUB_REF_NAME} --latest
+          gh release edit ${GITHUB_REF_NAME} --prerelease=false --latest
