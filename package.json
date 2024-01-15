@@ -17,7 +17,8 @@
         "build": "unbuild",
         "pub": "npm run build; npm publish",
         "lint": "eslint .",
-        "test": "vitest"
+        "test": "vitest",
+        "test-watch": "vitest --watch"
     },
     "repository": {
         "type": "git",
@@ -25,8 +26,7 @@
     },
     "keywords": [
         "sjwt",
-        "simple",
-        "jwt",
+        "simplejwt",
         "jwt",
         "authentication",
         "users"
