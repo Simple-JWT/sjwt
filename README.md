@@ -1,6 +1,6 @@
-# Simple JWT
+# SimpleJWT
 
-The Simple JWT library simplifies using [simplejwt.com](https://simplejwt.com?utm_source=github). It gives you simple tools for your end users to register, login, etc for a complete user management experience. All end users have an associated JSON store that you can access as well.
+The SimpleJWT `sjwt` library simplifies using [simplejwt.com](https://simplejwt.com?utm_source=github). It gives you simple tools for your end users to register, login, etc for a complete user management experience. All end users have an associated JSON store that you can access as well.
 
 ### Basic Usage
 
