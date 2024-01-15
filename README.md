@@ -4,15 +4,15 @@ The Simple JWT library simplifies using [simplejwt.com](https://simplejwt.com?ut
 
 ### Basic Usage
 
-*. `npm install sjwt`
+* `npm install sjwt`
 
-*. `import {register} from 'sjwt';`
+* `import {register} from 'sjwt';`
 
-*. `const response = await register({email, password, projectId});`
+* `const response = await register({email, password, projectId});`
 
-*. `import {getAuthenticatedUser} from 'sjwt';`
+* `import {getAuthenticatedUser} from 'sjwt';`
 
-*. `const user = await getAuthenticatedUser({projectId});`
+* `const user = await getAuthenticatedUser({projectId});`
 
 ### Documentation
 
