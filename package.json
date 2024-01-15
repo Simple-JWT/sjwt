@@ -15,7 +15,6 @@
     "type": "module",
     "scripts": {
         "build": "unbuild",
-        "pub": "npm run build; npm publish",
         "lint": "eslint .",
         "test": "vitest",
         "test-watch": "vitest --watch"
