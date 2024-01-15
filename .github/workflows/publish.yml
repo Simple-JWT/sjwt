@@ -21,14 +21,9 @@ jobs:
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
-  release:
-    runs-on: ubuntu-latest
-    steps:
       - name: Set release to latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ env.GITHUB_REF_NAME }}
         run: |
-          gh release edit "$tag" \
-              --repo="$GITHUB_REPOSITORY" \
-              --latest
+          gh release edit ${GITHUB_REF_NAME} --latest
