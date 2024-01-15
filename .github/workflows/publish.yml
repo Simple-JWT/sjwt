@@ -4,9 +4,7 @@ on:
 
 # publish workflow:
 # 1. create a release https://github.com/Simple-JWT/sjwt/releases/new
-# 2. mark it as a pre-release
-# 3. if this action completes, mark it as latest
-#    TODO - automate step 3 in this action
+# 2. mark it as a pre-release which will trigger this script
 
 jobs:
   publish:
@@ -23,3 +21,14 @@ jobs:
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set release to latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ GITHUB_REF_NAME }}
+        run: |
+          gh release edit "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --latest
