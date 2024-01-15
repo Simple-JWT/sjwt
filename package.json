@@ -1,6 +1,6 @@
 {
     "name": "sjwt",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "The EASY and FAST authentication service",
     "files": [
         "dist"
@@ -14,6 +14,7 @@
     "main": "./dist/index.cjs",
     "type": "module",
     "scripts": {
+        "check-version": "node ./checkVersion.cjs",
         "build": "unbuild",
         "lint": "eslint .",
         "test": "vitest",
