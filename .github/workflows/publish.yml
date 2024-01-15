@@ -27,7 +27,7 @@ jobs:
       - name: Set release to latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ GITHUB_REF_NAME }}
+          tag: ${{ env.GITHUB_REF_NAME }}
         run: |
           gh release edit "$tag" \
               --repo="$GITHUB_REPOSITORY" \
