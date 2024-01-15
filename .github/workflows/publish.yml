@@ -1,6 +1,12 @@
 on:
   release:
-    types: [published]
+    types: [prereleased]
+
+# publish workflow:
+# 1. create a release https://github.com/Simple-JWT/sjwt/releases/new
+# 2. mark it as a pre-release
+# 3. if this action completes, mark it as latest
+#    TODO - automate step 3 in this action
 
 jobs:
   publish:
@@ -11,7 +17,7 @@ jobs:
         with:
           node-version: "20"
       - run: npm ci
-      - run: npm run check-version ${{ env.GITHUB_REF_NAME }}
+      - run: npm run check-version ${GITHUB_REF_NAME}
       - run: npm run test
       - run: npm run build
       - uses: JS-DevTools/npm-publish@v3
