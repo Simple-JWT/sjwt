@@ -18,8 +18,7 @@ const getAuthenticatedUser = async ({
             return sjwt.user;
         }
 
-        const token = sjwt.loadToken();
-        if (!token) {
+        if (!sjwt.token) {
             return null;
         }
 
@@ -29,15 +28,14 @@ const getAuthenticatedUser = async ({
         const response = await fetch(url, {
             method: 'get',
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${sjwt.token}`,
             },
         });
 
-        const data = response.json();
+        const data = await response.json();
         if (data.id) {
             // TODO check to make sure this is a 200 a better way
-            // TODO calling setToken here feels weird, setUser instead?
-            sjwt.saveToken({token, user: data});
+            sjwt.user = data;
         }
 
         return data;

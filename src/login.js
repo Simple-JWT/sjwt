@@ -43,10 +43,8 @@ const login = async ({
 
         const data = await result.json();
         if (data.token && data.user) {
-            sjwt.saveToken({
-                token: data.token,
-                user: data.user,
-            });
+            sjwt.token = data.token;
+            sjwt.user = data.user;
         }
 
         return data;
