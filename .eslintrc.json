@@ -20,7 +20,7 @@
             "extends": ["plugin:vitest/recommended"]
         }
     ],
-    "ignorePatterns": ["dist/"],
+    "ignorePatterns": ["dist/", "src/branding.js"],
     "plugins": [
         "vitest",
         "jsdoc"
