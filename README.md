@@ -17,3 +17,16 @@ The SimpleJWT `sjwt` library simplifies using [simplejwt.com](https://simplejwt.
 ### Documentation
 
 [WIP @ simplejwt.com](https://simplejwt.com/docs)
+
+### Building and manually testing before publishing
+
+1. `npm run build` creates the `dist` directory
+2. `npm pack` creates a tar file
+3. To test, in some other project's package.json dependencies, put `"sjwt": "file:<path to tgz file>"`
+
+Note, sometimes you need to clean npm's cache:
+
+1. `npm cache ls | grep sjwt` list all sjwt cache entries
+2. `npm cache clean <an entry from above>` delete an entry
+
+Note, you often need to remove checksums from package-lock.json as well

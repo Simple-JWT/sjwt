@@ -1,6 +1,6 @@
 {
     "name": "sjwt",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "The EASY and FAST authentication service",
     "files": [
         "dist"
@@ -35,7 +35,7 @@
         "authentication",
         "users"
     ],
-    "author": "Jonathan Walters <jon.jdw.me@gmail.com>",
+    "author": "Jonathan Walters <jon@simplejwt.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/Simple-JWT/sjwt/issues"
