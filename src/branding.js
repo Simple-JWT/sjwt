@@ -220,7 +220,11 @@ const defineSjwtBranding = () => {
 
             this.link = document.createElement('a');
             this.link.classList.add('link');
-            this.link.setAttribute('href', 'https://simplejwt.com');
+            let source = '';
+            try {
+                source = `?utm_source=${window.location.hostname}`;
+            } catch {}
+            this.link.setAttribute('href', `https://simplejwt.com${source}`);
 
             // TODO FIXME okay, just make this whole thing an svg. smh.
             this.logo = document.createElement('img');
