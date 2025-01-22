@@ -24,7 +24,14 @@ const defineSjwtBranding = () => {
 
     class SjwtBranding extends ParentElement {
         static get observedAttributes() {
-            return ['is-dark', 'height', 'width', 'open-in-new-tab', 'powered-by-color'];
+            return [
+                'height',
+                'is-dark',
+                'open-in-new-tab',
+                'powered-by-color',
+                'utm-source',
+                'width',
+            ];
         };
 
         shadow;
@@ -143,12 +150,34 @@ const defineSjwtBranding = () => {
             return '#2B614B';
         }
 
+        set poweredByColor(value) {
+            this.setAttribute('powered-by-color', value);
+        }
+
         get openInNewTab() {
             return Boolean(this.isTrue.exec(this.getAttribute('open-in-new-tab')));
         }
 
         set openInNewTab(open) {
             this.setAttribute('open-in-new-tab', open);
+        }
+
+        get utmSource() {
+            const source = this.getAttribute('utm-source');
+
+            if (source !== null) {
+                return `?utm_source=${source}`;
+            }
+
+            try {
+                return `?utm_source=${window.location.hostname}`;
+            } catch {}
+
+            return null;
+        }
+
+        set utmSource(value) {
+            this.setAttribute('utm-source', value);
         }
 
         constructor() {
@@ -181,6 +210,12 @@ const defineSjwtBranding = () => {
                 this.link.setAttribute('target', '_blank');
             } else {
                 this.link.removeAttribute('target');
+            }
+
+            if (this.utmSource) {
+                this.link.setAttribute('href', `https://simplejwt.com${this.utmSource}`);
+            } else {
+                this.link.setAttribute('href', 'https://simplejwt.com');
             }
 
             this.poweredPath.setAttributeNS(null, 'fill', this.poweredByColor);
@@ -220,11 +255,6 @@ const defineSjwtBranding = () => {
 
             this.link = document.createElement('a');
             this.link.classList.add('link');
-            let source = '';
-            try {
-                source = `?utm_source=${window.location.hostname}`;
-            } catch {}
-            this.link.setAttribute('href', `https://simplejwt.com${source}`);
 
             // TODO FIXME okay, just make this whole thing an svg. smh.
             this.logo = document.createElement('img');
@@ -239,9 +269,9 @@ const defineSjwtBranding = () => {
 
             this.setDynamicAttributes();
 
-            this.container.appendChild(this.link);
             this.container.appendChild(this.logo);
             this.container.appendChild(this.powered);
+            this.container.appendChild(this.link);
 
             this.shadow.appendChild(this.stylesheet);
             this.shadow.appendChild(this.container);
